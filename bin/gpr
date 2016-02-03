@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+branch = `git symbolic-ref --short HEAD`.chomp
+origin = `git remote show origin`.split("\n").map do |str|
+    if match = str.match(/Push  URL: git@(.*):(.*).git/)
+        "#{match[1]}/#{match[2]}"
+    end
+end.find{|x| x}.chomp
+command = %(open -a "Google Chrome" https://#{origin}/compare/#{branch}?expand=1)
+`#{command}`

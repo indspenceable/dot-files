@@ -9,9 +9,6 @@ alias gcb="git co -b"
 alias pac="php app/console"
 alias pu="vendor/bin/phpunit -c app/phpunit.xml"
 alias gsd="git submodule update"
-function gpr(){
-    open -a "Google Chrome" "https://github.com/CrisisTextLine/app/compare/$(git symbolic-ref --short HEAD)?expand=1" --args --profile-directory="CTL"
-}
 
 # Git autocompletes
 if [ -f $currentdir/.git-completion.bash ]; then
