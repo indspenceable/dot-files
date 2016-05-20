@@ -1,0 +1,11 @@
+#! /usr/bin/ruby
+
+all_branches = `git branch`.split("\n").map{|b| b.strip}
+`git reflog | head -200 | grep 'checkout: moving from'`.split("\n").map do |line|
+  match = line.match(/moving from (.*) to (.*)/)
+  [match[1], match[2]]
+end.flatten.uniq.each do |branch|
+  if !%w(master staging develop).include?(branch) && all_branches.include?(branch)
+    puts branch
+  end
+end
