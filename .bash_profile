@@ -6,9 +6,8 @@ export PATH="$PATH:$currentdir/bin/"
 alias gs="git status -s"
 alias gap="git add -p"
 alias gcb="git co -b"
-alias pac="php app/console"
-alias pu="vendor/bin/phpunit -c app/phpunit.xml"
 alias gsd="git submodule update"
+alias merged="git branch --merged | grep -v -e 'master$' | grep -v 'staging$' | grep -v '^\*'"
 
 # Git autocompletes
 if [ -f $currentdir/.git-completion.bash ]; then
