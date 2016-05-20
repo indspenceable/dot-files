@@ -14,7 +14,7 @@
 	],
 	"shift_tab_unindent": true,
 	"show_full_path": true,
-	"tab_size": 4,
+	"tab_size": 2,
 	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
