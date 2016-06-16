@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+now = Time.now.to_i
+THRESHOLD = 60*60*24*14
+
+branch_names = `git branch`.split("\n").map(&:strip).map do |b|
+  if match = b.match(/^\* (.*)$/)
+    match[1]
+  else
+    b
+  end
+end
+branch_names -= %w(develop master staging)
+branch_names.each do |branch|
+  ts = `git show -s --format=%ct #{branch}`.to_i
+  if now - ts > THRESHOLD
+    puts branch
+  end
+end
